@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { Report, Sale } from '@prisma/client';
 import { ReportDto, ChunkDto } from './reports.dto';
 import { ReportService } from './reports.service';
@@ -9,12 +9,12 @@ export class ReportsController {
 
   @Get()
   async findAll(): Promise<Report[]> {
-    return await this.reportService.getReports()
+    return await this.reportService.getReports();
   }
 
   @Get('/sales')
-  async findAllSales(): Promise<Sale[]> {
-    return await this.reportService.getSales()
+  async findAllSales(@Query() query): Promise<Sale[]> {
+    return await this.reportService.getSales(query.page, query.count);
   }
 
   @Post()

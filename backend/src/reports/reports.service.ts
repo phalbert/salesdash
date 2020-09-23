@@ -30,13 +30,13 @@ export class ReportService {
     });
   }
 
-  async getSales() {
+  async getSales(page: number = 0, count: number = 10) {
     return await this.prisma.sale.findMany({
-      orderBy: [
-        {
-          id: 'desc',
-        },
-      ],
+      orderBy: {
+        id: 'desc',
+      },
+      skip: page * count,
+      take: count,
     });
   }
 }

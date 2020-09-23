@@ -1,0 +1,35 @@
+version: "3.5"
+
+x-env: &environ
+  environment:
+    NODE_ENV: development
+    REDIS_URL: ${REDIS_URL:-redis://redis:6379}
+
+services:
+  api:
+    container_name: sales_backend
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    volumes:
+      - "./backend:/app"
+      - "/app/node_modules"
+    ports:
+      - "3600:3000"
+    <<: *environ
+
+  web:
+    container_name: sales_frontend
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    volumes:
+      - "./frontend:/app"
+      - "/app/node_modules"
+    <<: *environ
+    environment:
+      API_URL: http://api:3000/
+    ports:
+      - "3800:3000"
+    depends_on:
+      - api
