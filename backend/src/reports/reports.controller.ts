@@ -13,7 +13,7 @@ export class ReportsController {
   }
 
   @Get('/sales')
-  async findAllSales(@Query() query): Promise<Sale[]> {
+  async findAllSales(@Query() query): Promise<unknown> {
     return await this.reportService.getSales(query.page, query.count);
   }
 

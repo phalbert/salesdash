@@ -11,7 +11,7 @@ export class ReportsProcessor {
 
   @Process()
   async store(job) {
-    console.log('new chunk', job.data);
+    console.log('new chunk', job.data.fileHash);
     const records = await this.getSalesRecordsFromChunk(job.data.chunkString);
     const createMany = records.map(record =>
       this.prisma.sale.create({

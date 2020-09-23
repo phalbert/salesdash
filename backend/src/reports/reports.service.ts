@@ -31,12 +31,14 @@ export class ReportService {
   }
 
   async getSales(page: number = 0, count: number = 10) {
-    return await this.prisma.sale.findMany({
+    const total = await this.prisma.sale.count()
+    const results = await this.prisma.sale.findMany({
       orderBy: {
         id: 'desc',
       },
       skip: page * count,
-      take: count,
+      take: Number(count),
     });
+    return { total, results }
   }
 }
