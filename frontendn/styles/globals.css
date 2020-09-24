@@ -1,0 +1,80 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.table {
+  vertical-align: middle;
+  width: 100%;
+}
+
+.table thead {
+  color: #696c6d;
+}
+
+.data-table td {
+  border: none;
+  font-size: 0.975rem;
+  vertical-align: middle;
+}
+.data-table td > * {
+  vertical-align: middle;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.25rem 1rem;
+}
+
+.data-table thead th {
+  font-size: 0.95rem;
+  color: #242629;
+  border: none;
+  text-transform: uppercase;
+}
+
+.data-table.lined th,
+.data-table.lined tr {
+  border-top: none;
+  border-bottom: 1px solid #2d2f31;
+}
+
+.data-table.results {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.data-table.results tbody tr {
+  width: 100%;
+  height: 0.7rem;
+  line-height: normal;
+}
+.data-table.results td {
+  padding: 0.875rem 1rem;
+}
+.data-table.results td .no-data {
+  text-align: center;
+  color: #9ea9b5;
+}
+
+.data-table.results tbody tr:nth-child(odd) {
+  background-color: #fff;
+  color: black;
+}
+
+.data-table.results tbody tr:nth-child(even) {
+  background-color: #0070f3;
+  color: #fff;
+}
