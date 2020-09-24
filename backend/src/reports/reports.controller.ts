@@ -18,6 +18,11 @@ export class ReportsController {
     return await this.reportService.getSales(query.page, query.count);
   }
 
+  @Get('/salesByDate')
+  async findSaleStats(@Query() query): Promise<unknown> {
+    return await this.reportService.getSaleStats(query.fromDate, query.toDate);
+  }
+
   @Post()
   async createReport(@Body() report: ReportDto) {
     return await this.reportService.saveReportDetails(report);

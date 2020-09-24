@@ -45,4 +45,16 @@ export class ReportService {
     });
     return { total, results };
   }
+
+  async getSaleStats(fromDate: Date, toDate: Date) {
+    const results = await this.prisma.sale.findMany({
+      where: {
+        orderDate: {
+          gte: new Date(fromDate),
+          lte: new Date(toDate)
+        },
+      },
+    });
+    return { total: results.length, results };
+  }
 }
