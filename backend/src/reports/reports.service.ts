@@ -30,15 +30,19 @@ export class ReportService {
     });
   }
 
-  async getSales(page: number = 0, count: number = 10) {
-    const total = await this.prisma.sale.count()
+  async getSales(page: string, count: number = 10) {
+    let pageNo = Number(page || 0);
+    // not the best way but anyway
+    pageNo = pageNo === 0 ? pageNo : pageNo - 1;
+
+    const total = await this.prisma.sale.count();
     const results = await this.prisma.sale.findMany({
       orderBy: {
         id: 'desc',
       },
-      skip: page * count,
+      skip: pageNo * Number(count),
       take: Number(count),
     });
-    return { total, results }
+    return { total, results };
   }
 }

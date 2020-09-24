@@ -14,6 +14,7 @@ export class ReportsController {
 
   @Get('/sales')
   async findAllSales(@Query() query): Promise<unknown> {
+    console.log(query);
     return await this.reportService.getSales(query.page, query.count);
   }
 
