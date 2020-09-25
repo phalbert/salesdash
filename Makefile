@@ -16,6 +16,8 @@ api-deps:
 web-deps:
 	cd frontend && yarn
 
+deps: api-deps web-deps
+
 migrate:
 	cd backend && npx prisma migrate save --experimental && npx prisma migrate up --experimental
 

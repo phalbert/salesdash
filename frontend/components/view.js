@@ -73,7 +73,7 @@ const SaleStatistics = () => {
           <h3>Top 5 Item Types</h3>
           {topItems.map((item) => (
             <>
-              <div className={styles.item}>
+              <div className={styles.item} key={`${item.itemType}-${item.totalProfit}`}>
                 <span>{item.itemType}</span>
                 <span>{item.totalProfit.toLocaleString()}</span>
               </div>
@@ -97,7 +97,7 @@ export default function SalesView() {
   return (
     <div>
       <details>
-        <summary>Open Mini Dashboard</summary>
+        <summary>Click to Open Mini Dashboard</summary>
         <br />
         <SaleStatistics />
       </details>
