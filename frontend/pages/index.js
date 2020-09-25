@@ -4,6 +4,8 @@ import { streamFile } from "../utils/stream";
 import MD5 from "crypto-js/md5";
 import SalesTable from "../components/view";
 
+console.log('URL', process.env.API_URL);
+
 export default function Home({ sales }) {
   let fileReader, fileBlob;
 
@@ -27,7 +29,7 @@ export default function Home({ sales }) {
 
   const postRecords = async (chunk) => {
     console.log("chunk", (chunk.match(/\n/g) || "").length);
-    fetch("http://localhost:3400/api/sales", {
+    fetch(`/api/sales`, {
       method: "POST",
       body: JSON.stringify({
         fileHash: MD5("hashed").toString(),

@@ -6,6 +6,8 @@ import { chain } from "lodash";
 
 import styles from "./__styles__/view.module.css";
 
+const baseURL = process.env.API_URL || 'http://localhost:3000';
+
 const SaleStatistics = () => {
   const [fromDate, setFromDate] = useState(undefined);
   const [toDate, setToDate] = useState(undefined);
@@ -15,7 +17,7 @@ const SaleStatistics = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = `http://localhost:3000/reports/salesByDate?fromDate=${fromDate}&toDate=${toDate}`;
+    const url = `api/salesByDate?fromDate=${fromDate}&toDate=${toDate}`;
     const result = await fetch(url);
     const data = await result.json();
 

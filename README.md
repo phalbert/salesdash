@@ -51,4 +51,37 @@ Then run the app on port 3400
 $ yarn dev --port=3400
 ```
 
+
+### Running with Docker
+
+This is the more convenient option
+
+#### Prerequisites
+
+1. Install Docker [on windows](https://docs.docker.com/get-docker/) or [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+2. Install [docker-compose](https://docs.docker.com/compose/install/)
+
+#### Commands 
+
+> All these commands should be run from the root folder
+
+1. Run the migrations
+
+```bash
+make db
+```
+
+2. Build the containers
+
+```bash
+make build
+```
+
+3. Start the containers
+
+```bash
+make run
+```
+
+
 ## Architecture

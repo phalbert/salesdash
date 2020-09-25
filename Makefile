@@ -16,8 +16,11 @@ api-deps:
 web-deps:
 	cd frontend && yarn
 
-db:
+migrate:
 	cd backend && npx prisma migrate save --experimental && npx prisma migrate up --experimental
+
+db:
+	docker-compose -f docker-compose.migrate.yml up -d
 
 build:
 	docker-compose build
@@ -34,8 +37,13 @@ run-web:
 run-api:
 	cd backend && yarn start:dev
 
-restart: clean run
+run:
+	docker-compose up
 
+stop:
+	docker-compose down
+
+restart: stop run
 
 all: db build run
 

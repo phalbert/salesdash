@@ -10,7 +10,7 @@ import { ReportsProcessor } from './reports.processor';
     BullModule.registerQueue({
       name: 'sales',
       redis: {
-        host: 'localhost',
+        host: process.env.REDIS_HOST || 'localhost',
         port: 6379,
       },
     }),
