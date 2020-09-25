@@ -10,6 +10,46 @@ A simple application that demonstrates file upload using streaming.
 
 ## Getting Started
 
+
+### Running with Docker
+
+This is the more convenient option
+
+#### Prerequisites
+
+1. Install Docker [on windows](https://docs.docker.com/get-docker/) or [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+2. Install [docker-compose](https://docs.docker.com/compose/install/)
+
+#### Commands 
+
+> All these commands should be run from the root folder
+
+There is only one command to run once you clone the repo
+
+```bash
+make all
+```
+
+It is composed  of the following commands
+
+1. Run the migrations
+
+```bash
+make db
+```
+
+2. Build the containers
+
+```bash
+make build
+```
+
+3. Start the containers
+
+```bash
+make run
+```
+
 ### Running Locally
 
 #### Prerequisites
@@ -50,38 +90,5 @@ Then run the app on port 3400
 ```bash
 $ yarn dev --port=3400
 ```
-
-
-### Running with Docker
-
-This is the more convenient option
-
-#### Prerequisites
-
-1. Install Docker [on windows](https://docs.docker.com/get-docker/) or [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-2. Install [docker-compose](https://docs.docker.com/compose/install/)
-
-#### Commands 
-
-> All these commands should be run from the root folder
-
-1. Run the migrations
-
-```bash
-make db
-```
-
-2. Build the containers
-
-```bash
-make build
-```
-
-3. Start the containers
-
-```bash
-make run
-```
-
 
 ## Architecture
