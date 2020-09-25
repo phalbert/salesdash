@@ -4,7 +4,6 @@ import { streamFile } from "../utils/stream";
 import MD5 from "crypto-js/md5";
 import SalesTable from "../components/view";
 
-console.log('URL', process.env.API_URL);
 
 export default function Home({ sales }) {
   let fileReader, fileBlob;
@@ -63,8 +62,6 @@ export default function Home({ sales }) {
           />
         </div>
         <br />
-
-        {/* <h1>{sales.total.toLocaleString()} sales</h1> */}
         <SalesTable />
       </main>
 
@@ -78,8 +75,3 @@ export default function Home({ sales }) {
   );
 }
 
-// export const getServerSideProps = async () => {
-//   const res = await fetch("http://localhost:3400/api/sales");
-//   const data = await res.json();
-//   return { props: { sales: data } };
-// };

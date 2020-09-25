@@ -107,12 +107,12 @@ export default function SalesView() {
         <SaleStatistics />
       </details>
       <hr />
-      <h1>{data.total.toLocaleString()} sales</h1>
-      <SalesTable results={data.results} />
+      <h1>{data?.total.toLocaleString()} sales</h1>
+      <SalesTable results={data?.results} />
       <Pagination
         className="pb-8"
         page={page}
-        total={data.total}
+        total={data?.total}
         limit={10}
         setPage={setPage}
       />
