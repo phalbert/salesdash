@@ -15,6 +15,12 @@ export const Pagination = ({ page, total, limit, setPage }) => {
       <button
         disabled={page <= 1}
         className="icon-button arrow previous focus:outline-none"
+        onClick={() => setPage(1)}>
+        First
+      </button>
+      <button
+        disabled={page <= 1}
+        className="icon-button arrow previous focus:outline-none"
         onClick={() => setPage(page - 1)}>
         <i className="fa fa-chevron-left text-black" />
       </button>
@@ -33,6 +39,12 @@ export const Pagination = ({ page, total, limit, setPage }) => {
         className="icon-button arrow next focus:outline-none"
         onClick={() => setPage(page + 1)}>
         <i className="fa fa-chevron-right text-black" />
+      </button>
+      <button
+        disabled={page >= totalPages}
+        className="icon-button arrow next focus:outline-none"
+        onClick={() => setPage(totalPages)}>
+        Last
       </button>
     </div>
   );

@@ -14,9 +14,11 @@ const SaleStatistics = () => {
   const [topItems, setTopItems] = useState([]);
   const [totalProfit, setTotalProfit] = useState(0);
   const [total, setTotal] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const url = `api/salesByDate?fromDate=${fromDate}&toDate=${toDate}`;
     const result = await fetch(url);
     const data = await result.json();
@@ -35,7 +37,10 @@ const SaleStatistics = () => {
     setTopItems(topItemTypes);
     setTotal(data.total);
     setTotalProfit(data.results.reduce((acc, sale) => acc + sale.total, 0));
+    setLoading(false);
   };
+
+  if (loading) return <div><h3>Loading statistics...</h3></div>
 
   return (
     <section>
@@ -62,7 +67,7 @@ const SaleStatistics = () => {
       </form>
       <div className={styles.grid}>
         <div className={styles.card}>
-          <h3>Total</h3>
+          <h3>Total Sales</h3>
           <p>{total.toLocaleString()}</p>
         </div>
         <div className={styles.card}>
