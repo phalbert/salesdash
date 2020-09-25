@@ -30,6 +30,10 @@ There is only one command to run once you clone the repo
 make all
 ```
 
+The web app can be loaded at http://localhost:3800
+
+The backend api can be found at http://localhost:3600
+
 It is composed  of the following commands
 
 1. Run the migrations
