@@ -10,7 +10,6 @@ A simple application that demonstrates file upload using streaming.
 
 ## Getting Started
 
-
 ### Running with Docker
 
 This is the more convenient option
@@ -81,6 +80,7 @@ $ yarn start:dev
 # production mode
 $ yarn start:prod
 ```
+
 #### Frontend
 
 Navigate to the frontend
