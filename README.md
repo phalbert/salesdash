@@ -22,7 +22,7 @@ This is the more convenient option
 
 #### Commands 
 
-> All these commands should be run from the root folder
+> All these commands should be run from the root folder.
 
 There is only one command to run once you clone the repo
 
