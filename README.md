@@ -10,10 +10,9 @@ A simple application that demonstrates file upload using streaming.
 
 ## Getting Started
 
-
 ### Running with Docker
 
-This is the more convenient option
+This is the more convenient option.
 
 #### Prerequisites
 
